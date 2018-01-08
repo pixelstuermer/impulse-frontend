@@ -16,6 +16,9 @@ cache:
     - node
 
 before_install:
+  - npm install -g @angular/cli@latest
+  - npm install -g npm@latest
+  - npm install -g nvm@latest
   - npm cache verify
 
 install:
