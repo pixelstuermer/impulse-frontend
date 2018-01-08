@@ -15,6 +15,9 @@ cache:
     - node_modules
     - node
 
+node_js:
+  - node
+
 before_install:
   - npm install -g @angular/cli@latest
   - npm install -g npm@latest
