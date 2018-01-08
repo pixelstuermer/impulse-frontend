@@ -23,7 +23,7 @@ install:
   - npm install
 
 script:
-  - npm run ci
+  - ng build --prod
 
 notifications:
   email:
