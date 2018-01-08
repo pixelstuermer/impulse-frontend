@@ -5,6 +5,10 @@ branches:
     - develop
     - /\d+\.\d+\.\d+/
 
+before_script:
+- npm install
+- ng build
+
 notifications:
   email:
     on_success: never

@@ -18,7 +18,6 @@
 				<configuration>
 					<nodeVersion>v6.10.1</nodeVersion>
 					<npmVersion>4.4.1</npmVersion>
-					<workingDirectory>impulse-frontend</workingDirectory>
 				</configuration>
 				<executions>
 					<execution>
