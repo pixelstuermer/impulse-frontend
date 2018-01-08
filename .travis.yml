@@ -6,8 +6,12 @@ branches:
     - /\d+\.\d+\.\d+/
 
 before_script:
+- npm install -g angular-cli
+- npm install -g karma
 - npm install
-- ng build
+
+script:
+- ng build --prod
 
 notifications:
   email:
