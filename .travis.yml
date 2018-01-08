@@ -1,3 +1,5 @@
+sudo: required
+dist: trusty
 language: node_js
 branches:
   only:
@@ -6,13 +8,13 @@ branches:
     - /\d+\.\d+\.\d+/
 
 before_script:
-- npm install -g angular-cli
-- npm install -g karma
-- npm install -g npm
-- npm install
+  - npm install -g angular-cli
+  - npm install -g karma
+  - npm install -g npm
+  - npm install
 
 script:
-- ng build --prod
+  - npm run ci
 
 notifications:
   email:
