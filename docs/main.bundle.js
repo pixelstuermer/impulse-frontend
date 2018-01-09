@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <i class=\"em-svg em-angry\" id=\"smiley\"></i>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-sm\" id=\"middle-row\">\n      <h1>\n        <strong>{{counter}}</strong>\n      </h1>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-sm\" id=\"bottom-row\">\n      <button type=\"button\" class=\"btn btn-outline-light btn-lg btn-block\" (click)=\"increase()\">+1</button>\n      <!--\n        <button type=\"button\" class=\"btn btn-outline-light btn-lg btn-block\" (click)=\"decrease()\">-1</button>\n      -->\n    </div>\n  </div>\n\n</div>"
+module.exports = "<div class=\"container\">\n\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <i class=\"em-svg em-angry\" id=\"smiley\"></i>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-sm\" id=\"middle-row\">\n      <h1>\n        <strong>{{counter}}</strong>\n      </h1>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-sm\" id=\"bottom-row\">\n      <button type=\"button\" class=\"btn btn-outline-light btn-lg btn-block\" (click)=\"increase()\">+1</button>\n      <button type=\"button\" class=\"btn btn-outline-light btn-lg btn-block\" (click)=\"getCounter()\">Refresh</button>\n      <!--\n        <button type=\"button\" class=\"btn btn-outline-light btn-lg btn-block\" (click)=\"decrease()\">-1</button>\n      -->\n    </div>\n  </div>\n\n</div>"
 
 /***/ }),
 
