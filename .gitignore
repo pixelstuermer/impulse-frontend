@@ -3,6 +3,7 @@
 # custom
 /node
 /target
+package-lock.json
 
 # compiled output
 /dist
