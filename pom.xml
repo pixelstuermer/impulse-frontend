@@ -9,36 +9,103 @@
 	<name>impulse-frontend</name>
 	<description>Frontend of the impulse project</description>
 
+	<properties>
+		<node.version>v8.9.4</node.version>
+		<npm.version>5.6.0</npm.version>
+
+		<frontend.maven.version>1.6</frontend.maven.version>
+		<resources.plugin.version>3.0.2</resources.plugin.version>
+		<clean.plugin.version>3.0.0</clean.plugin.version>
+
+		<input.folder>dist</input.folder>
+		<output.folder>docs</output.folder>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
+				<!-- compile the frontend sources to the 'dist' folder -->
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.3</version>
+				<version>${frontend.maven.version}</version>
 				<configuration>
-					<nodeVersion>v6.10.1</nodeVersion>
-					<npmVersion>4.4.1</npmVersion>
+					<nodeVersion>${node.version}</nodeVersion>
+					<npmVersion>${npm.version}</npmVersion>
 				</configuration>
 				<executions>
 					<execution>
 						<id>install node and npm</id>
+						<phase>compile</phase>
 						<goals>
 							<goal>install-node-and-npm</goal>
 						</goals>
 					</execution>
 					<execution>
 						<id>npm install</id>
+						<phase>compile</phase>
 						<goals>
 							<goal>npm</goal>
 						</goals>
 					</execution>
 					<execution>
 						<id>npm run build</id>
+						<phase>compile</phase>
 						<goals>
 							<goal>npm</goal>
 						</goals>
 						<configuration>
 							<arguments>run build</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<!-- copy the compiled frontend to the 'docs' folder (for GitHub pages) -->
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${resources.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>copy resources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}/${output.folder}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/${input.folder}</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<!-- delete unnecessary 'dist' folder and all files within the 'target' folder -->
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${clean.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>delete resources and directories</id>
+						<phase>package</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+						<configuration>
+							<excludeDefaultDirectories>true</excludeDefaultDirectories>
+							<filesets>
+								<fileset>
+									<directory>${project.basedir}/${input.folder}</directory>
+								</fileset>
+								<fileset>
+									<directory>${project.build.directory}</directory>
+									<includes>
+										<include>**/*</include>
+									</includes>
+								</fileset>
+							</filesets>
 						</configuration>
 					</execution>
 				</executions>
