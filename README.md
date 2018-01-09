@@ -6,6 +6,3 @@ Frontend of the impulse project
 
 # Build
 Run the Maven build with `mvn clean package`.
-
-# GitHub Pages
-The GitHub Pages site can be found [here](https://pixelstuermer.github.io/impulse-frontend/).
