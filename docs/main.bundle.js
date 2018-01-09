@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container {\n    padding-top: 50px;\n    text-align: center;\n    color: white;\n}\n\n#middle-row {\n    padding-top: 50px;\n}\n\n#bottom-row {\n    padding-top: 100px;\n}\n\n#smiley {\n    width: 160px;\n    height: 160px;\n}", ""]);
+exports.push([module.i, ".container {\n    padding-top: 50px;\n    text-align: center;\n    color: white;\n}\n\n#middle-row {\n    padding-top: 50px;\n}\n\n#bottom-row {\n    padding-top: 50px;\n}\n\n#smiley {\n    width: 140px;\n    height: 140px;\n}", ""]);
 
 // exports
 
