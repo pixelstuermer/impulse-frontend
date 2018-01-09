@@ -5,6 +5,21 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'app';
+
+  counter: number;
+
+  constructor() {
+    this.counter = 17;
+  }
+
+  increase() {
+    console.info('+1');
+  }
+
+  decrease() {
+    console.info('-1');
+  }
+
 }

@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".container {\n    padding-top: 50px;\n    text-align: center;\n    color: white;\n}\n\n#middle-row {\n    padding-top: 50px;\n}\n\n#bottom-row {\n    padding-top: 100px;\n}\n\n#smiley {\n    width: 160px;\n    height: 160px;\n}", ""]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{title}}!\n  </h1>\n  <i class=\"em-svg em-angry\" style=\"width: 200px; height: 200px\"></i>\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" href=\"http://angularjs.blogspot.com/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n"
+module.exports = "<div class=\"container\">\n\n  <div class=\"row\">\n    <div class=\"col-sm\">\n      <i class=\"em-svg em-angry\" id=\"smiley\"></i>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-sm\" id=\"middle-row\">\n      <h1>\n        <strong>{{counter}}</strong>\n      </h1>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-sm\" id=\"bottom-row\">\n      <button type=\"button\" class=\"btn btn-outline-light btn-lg btn-block\" (click)=\"increase()\">+1</button>\n      <button type=\"button\" class=\"btn btn-outline-light btn-lg btn-block\" (click)=\"decrease()\">-1</button>\n    </div>\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -50,11 +50,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'app';
+        this.counter = 17;
     }
+    AppComponent.prototype.increase = function () {
+        console.info('+1');
+    };
+    AppComponent.prototype.decrease = function () {
+        console.info('-1');
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -62,7 +71,8 @@ AppComponent = __decorate([
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [])
 ], AppComponent);
 
 //# sourceMappingURL=app.component.js.map

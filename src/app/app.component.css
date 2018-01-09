@@ -1,0 +1,18 @@
+.container {
+    padding-top: 50px;
+    text-align: center;
+    color: white;
+}
+
+#middle-row {
+    padding-top: 50px;
+}
+
+#bottom-row {
+    padding-top: 100px;
+}
+
+#smiley {
+    width: 160px;
+    height: 160px;
+}
