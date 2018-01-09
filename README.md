@@ -3,3 +3,9 @@
 
 # impulse-frontend
 Frontend of the impulse project
+
+# Build
+Run the Maven build with `mvn clean package`.
+
+# GitHub Pages
+To be done.

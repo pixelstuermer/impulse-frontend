@@ -59,13 +59,15 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
-				<!-- copy the compiled frontend to the 'docs' folder (for GitHub pages) -->
+				<!-- copy the compiled frontend from the 'dist' folder -->
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>${resources.plugin.version}</version>
 				<executions>
 					<execution>
-						<id>copy resources</id>
+						<!-- copy to the 'docs' folder (for GitHub Pages) -->
+						<id>copy resources to docs folder</id>
 						<phase>package</phase>
 						<goals>
 							<goal>copy-resources</goal>
@@ -80,10 +82,28 @@
 							</resources>
 						</configuration>
 					</execution>
+					<execution>
+						<!-- copy to the 'target/dist' folder -->
+						<id>copy resources to target/dist folder</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${input.folder}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/${input.folder}</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
-				<!-- delete unnecessary 'dist' folder and all files within the 'target' folder -->
+				<!-- delete folders and resources -->
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>${clean.plugin.version}</version>
 				<executions>
@@ -96,14 +116,16 @@
 						<configuration>
 							<excludeDefaultDirectories>true</excludeDefaultDirectories>
 							<filesets>
+								<!-- delete 'dist' folder -->
 								<fileset>
 									<directory>${project.basedir}/${input.folder}</directory>
 								</fileset>
+								<!-- delete specific files and directories from 'target' folder -->
 								<fileset>
 									<directory>${project.build.directory}</directory>
-									<includes>
-										<include>**/*</include>
-									</includes>
+									<excludes>
+										<exclude>${input.folder}/*</exclude>
+									</excludes>
 								</fileset>
 							</filesets>
 						</configuration>
@@ -112,4 +134,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
